@@ -27,15 +27,5 @@
             <f:param name="carID" value="#{carShops.myCar.carID}" />
         </h:commandButton>
     </h:form>
-
-
-    <h2>Shops in database</h2>
-    <ol>
-        <ui:repeat value="#{carShops.shopsFromDB}" var="shop">
-            <li>
-                <h:outputText value="#{shop.name}" />
-            </li>
-        </ui:repeat>
-    </ol>
 </h:body>
 </html>
