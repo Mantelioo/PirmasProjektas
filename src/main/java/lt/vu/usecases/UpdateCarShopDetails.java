@@ -4,6 +4,7 @@ package lt.vu.usecases;
 import lombok.Getter;
 import lombok.Setter;
 import lt.vu.entities.Shop;
+import lt.vu.interceptors.LoggedInvocation;
 import lt.vu.persistence.ShopDAO;
 
 import javax.annotation.PostConstruct;
@@ -18,7 +19,7 @@ import java.io.Serializable;
 import java.util.Map;
 
 
-
+@LoggedInvocation
 @RequestScoped
 @Named
 @Getter @Setter

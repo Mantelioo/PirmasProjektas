@@ -12,10 +12,13 @@ import java.util.Map;
 import lombok.Getter;
 import lombok.Setter;
 import lt.vu.entities.Car;
+import lt.vu.interceptors.LoggedInvocation;
 import lt.vu.persistence.CarDAO;
 import lt.vu.entities.Shop;
 import lt.vu.persistence.ShopDAO;
 
+
+@LoggedInvocation
 @Model
 public class CarShops implements Serializable
 {
@@ -51,7 +54,14 @@ public class CarShops implements Serializable
     @Transactional //Jei viduje atliekami keli veiksmai ir kazkuris is tu veiksmu nulus. visi pakeitinai RollBackins
     public String addShop()
     {
-        myShop.getShopCars().add(this.myCar);
+        for (Shop tempShop: shopsFromDB)
+        {
+            if(tempShop.getName().equals(myShop.getName()))
+            {
+                myShop = tempShop;
+            }
+        }
+        myShop.getShopCars().add(myCar);
         myShopDAO.persist(myShop);
         return "carShops.xhtml?faces-redirect=true&carID=" + this.myCar.getCarID();
     }

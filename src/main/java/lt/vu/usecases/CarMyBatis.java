@@ -2,6 +2,7 @@ package lt.vu.usecases;
 
 import lombok.Getter;
 import lombok.Setter;
+import lt.vu.interceptors.LoggedInvocation;
 import lt.vu.mybatis.dao.CarMapper;
 import lt.vu.mybatis.model.Car;
 
@@ -11,6 +12,8 @@ import javax.inject.Inject;
 import javax.transaction.Transactional;
 import java.util.List;
 
+
+@LoggedInvocation
 @Model
 public class CarMyBatis
 {

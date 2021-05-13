@@ -14,6 +14,8 @@
             </li>
         </ui:repeat>
     </ol>
+
+
     <h:form>
         <h:inputText a:placeholder="name" value="#{carShops.myShop.name}" required="true" />
         <h:commandButton value="Add an option so sell a car to this shop: " action="#{carShops.addShop}" >
@@ -27,5 +29,20 @@
             <f:param name="carID" value="#{carShops.myCar.carID}" />
         </h:commandButton>
     </h:form>
+
+
+    <h:form>
+        <h:inputText a:placeholder="gearbox" value="#{carShops.myCar.gearbox}" required="true"/>
+        <h:commandButton value="Replace the car's transmission" action="#{updateCarDetails.updateCarGearbox()}">
+            <f:param name="carID" value="#{carShops.myCar.carID}"/>
+        </h:commandButton>
+    </h:form>
+
+    <h:form>
+        <h:outputText value=""/>
+    </h:form>
+    <h:link outcome="index" value="Back to guns page"/>
+
+
 </h:body>
 </html>

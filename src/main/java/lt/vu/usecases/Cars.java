@@ -3,6 +3,7 @@ package lt.vu.usecases;
 import lombok.Getter;
 import lombok.Setter;
 import lt.vu.entities.Car;
+import lt.vu.interceptors.LoggedInvocation;
 import lt.vu.persistence.CarDAO;
 
 import javax.annotation.PostConstruct;
@@ -11,6 +12,8 @@ import javax.inject.Inject;
 import javax.transaction.Transactional;
 import java.util.List;
 
+
+@LoggedInvocation
 @Model
 public class Cars
 {

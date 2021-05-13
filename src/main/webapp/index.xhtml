@@ -9,7 +9,7 @@
     <h2>Cars:</h2>
     <ol>
         <ui:repeat value="#{cars.carsFromDB}" var="car">
-            <li><h:link value="#{car.description}" outcome="carShops?carID=#{car.carID}"/></li>
+            <li><h:link value="#{car.description} - #{car.gearbox}" outcome="carShops?carID=#{car.carID}"/></li>
         </ui:repeat>
     </ol>
     <h:form>

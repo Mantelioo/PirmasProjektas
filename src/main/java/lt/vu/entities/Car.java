@@ -13,6 +13,8 @@ public class Car //By default, JPA imama CAR lentele.
     private Long carID;
     private String description;
     private Set<Shop> carShops;
+    private String gearbox;
+    private int speed;
 
     @Id //Kiekvienas entity turi turetu ID lauka is duomenu bazeje. Tai yra primary key siuo atveju
     @GeneratedValue
@@ -25,6 +27,27 @@ public class Car //By default, JPA imama CAR lentele.
     public void setCarID(long id)
     {
         this.carID = id;
+    }
+
+
+    @Basic
+    @Column(name = "Gearbox")
+    public String getGearbox() {
+        return gearbox;
+    }
+    public void setGearbox(String gearbox) {
+        this.gearbox = gearbox;
+    }
+
+
+    @Basic
+    @Column(name = "Speed")
+    public int getSpeed() {
+        return speed;
+    }
+
+    public void setSpeed(int speed) {
+        this.speed = speed;
     }
 
 
