@@ -25,7 +25,7 @@
 
     <h:form>
         <h:inputText a:placeholder="carDescription" value="#{carShops.myCar.description}" required="true" />
-        <h:commandButton value="Change the description" action="#{updateCarDetails.updateCar}" >
+        <h:commandButton value="Change the description" action="#{updateCarDetails.updateCarDescription}" >
             <f:param name="carID" value="#{carShops.myCar.carID}" />
         </h:commandButton>
     </h:form>
@@ -39,9 +39,14 @@
     </h:form>
 
     <h:form>
-        <h:outputText value=""/>
+        <h:outputText value="#{speedGenerator.boosterStatus}"/>
+        <h:commandButton value="Generate speed?"
+                         disabled="#{speedGenerator.speedBoosterRunning}"
+                         action="#{speedGenerator.generateNewSpeed()}">
+            <f:param name="carID" value="#{carShops.myCar.carID}"/>
+        </h:commandButton>
     </h:form>
-    <h:link outcome="index" value="Back to guns page"/>
+    <h:link outcome="index" value="Back to cars page"/>
 
 
 </h:body>

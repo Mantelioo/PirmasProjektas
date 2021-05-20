@@ -16,7 +16,7 @@ public class AutomaticCarsDAO extends CarDAO implements ICarsDAO
    @Override
   public List<Car> getAllCars()
    {
-       return  em.createQuery("select c from Car c where c.gearbox='Manual'", Car.class)
+       return  em.createQuery("select c from Car c where c.gearbox='automatic'", Car.class)
                .getResultList();
    }
 }

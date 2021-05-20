@@ -26,6 +26,9 @@ public class UpdateCarDetails implements Serializable, IUpdateCarDetails {
 
     private Car myCar;
 
+    @Getter @Setter
+    private   String errorMSG = "Message";
+
     @Inject
     private CarDAO  carDAO;
 
@@ -43,9 +46,10 @@ public class UpdateCarDetails implements Serializable, IUpdateCarDetails {
         try {
             carDAO.updateCar(this.myCar);
         } catch (OptimisticLockException e) {
-            return "carshops.xhtml?carID=" + this.myCar.getCarID() + "&faces-redirect=true" + "&error=optimistic-lock-exception";
+            errorMSG = e.getMessage();
+            return "/carShops.xhtml?carID=" + this.myCar.getCarID() + "&faces-redirect=true" + "&error=optimistic-lock-exception";
         }
-        return "carshops.xhtml?carID=" + this.myCar.getCarID() + "&faces-redirect=true";
+        return "/carShops.xhtml?carID=" + this.myCar.getCarID() + "&faces-redirect=true";
     }
 
 
